@@ -6,6 +6,6 @@ services:
     ports:
       - "80:80"
     environment:
-      - DOMAIN="pkg.go.dev.local"
-      - SIGNATURE="Gopher 🇻🇳"
-      - THEME="atom-one-light"
+      - DOMAIN=pkg.go.dev.local
+      - SIGNATURE=Gopher 🇻🇳
+      - THEME=atom-one-light

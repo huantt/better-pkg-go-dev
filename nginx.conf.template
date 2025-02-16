@@ -8,9 +8,10 @@ server {
         proxy_hide_header Content-Security-Policy;
         sub_filter_once off;
         sub_filter_types text/html;
-        sub_filter '</head>' '<link href="/static-files/highlight/styles/${THEME}.min.css" rel=stylesheet><script src="/static-files/highlight/highlight.min.js"></script><script src="/static-files/highlight/go.min.js"></script><script>hljs.highlightAll()</script></head>';
+        sub_filter '</head>' '<link href="/static-files/highlight/styles/${THEME}.min.css" rel=stylesheet><script src="/static-files/highlight/highlight.min.js"></script><script src="/static-files/highlight/go.min.js"></script><script>hljs.configure({  cssSelector: "pre, pre code" });hljs.highlightAll()</script></head>';
         sub_filter 'pkg.go.dev' '${DOMAIN}';
         sub_filter '<code>' '<code class="language-go">';
+        sub_filter '<pre>' '<pre class="language-go">';
         sub_filter '</html>' '<div style=" text-align: center; ">${SIGNATURE}</div></html>';
     }
     location /static-files {

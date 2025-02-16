@@ -18,5 +18,5 @@ Since some README files do not specify the code language, we also update `<code>
 
 If you don't trust me, no worry, you can deploy it yourself:
 - Append `127.0.0.1       pkg.go.dev.local` to `/etc/hosts`
-- Run `docker-compose up -d`
+- Run `docker-compose up -d --build`
 - Access `http://pkg.go.dev.local`
