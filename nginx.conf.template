@@ -8,11 +8,12 @@ server {
         proxy_hide_header Content-Security-Policy;
         sub_filter_once off;
         sub_filter_types text/html;
-        sub_filter '<head>' '<head><meta http-equiv="Content-Security-Policy" content="script-src \'self\' \'unsafe-inline\'"/>';
+        sub_filter '<head>' '<head><meta http-equiv="Content-Security-Policy" content="script-src \'self\' \'unsafe-inline\'"/> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start": new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src= "https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","${GTM_ID}");</script>';
         sub_filter '</head>' '<link href="/static-files/highlight/styles/${THEME}.min.css" rel=stylesheet><script src="/static-files/highlight/highlight.min.js"></script><script src="/static-files/highlight/go.min.js"></script><script>hljs.configure({  cssSelector: "pre code, pre:not(:has(code))" });hljs.highlightAll()</script></head>';
         sub_filter 'pkg.go.dev' '${DOMAIN}';
         sub_filter '<code>' '<code class="language-go">';
         sub_filter '<pre>' '<pre class="language-go">';
+        sub_filter '<body>' '<body> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>';
         sub_filter '</html>' '<div style=" text-align: center; ">${SIGNATURE}</div></html>';
     }
     location /static-files {
