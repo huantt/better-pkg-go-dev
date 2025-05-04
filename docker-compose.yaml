@@ -9,4 +9,5 @@ services:
       - DOMAIN=pkg.go.dev.local
       - SIGNATURE=Gopher 🇻🇳
       - THEME=atom-one-light
-      - GTM_ID=""
+      - OLD_GTM_ID="GTM-W8MVQXG"
+      - NEW_GTM_ID="GTM-PKWLDZH2"

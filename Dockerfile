@@ -18,7 +18,8 @@ FROM nginx:stable-alpine as runner
 ENV DOMAIN="pkgo.dev"
 ENV SIGNATURE="Gopher 🇻🇳"
 ENV THEME="atom-one-light"
-ENV GTM_ID=""
+ENV OLD_GTM_ID="GTM-W8MVQXG"
+ENV NEW_GTM_ID="GTM-PKWLDZH2"
 COPY --from=builder /tmp/ngx_http_subs_filter_module.so /etc/nginx/modules/
 COPY nginx.conf.template /etc/nginx/templates/
 COPY static /www/static-files
