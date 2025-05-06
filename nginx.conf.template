@@ -8,7 +8,7 @@ server {
         proxy_hide_header Content-Security-Policy;
         sub_filter_once off;
         sub_filter_types text/html;
-        sub_filter '<head>' '<head><meta http-equiv="Content-Security-Policy" content="script-src \'self\' \'unsafe-inline\'"/>';
+        sub_filter '<head>' '<head><meta http-equiv="Content-Security-Policy" content="script-src \'self\' \'unsafe-inline\' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; connect-src \'self\' https://www.google-analytics.com https://stats.g.doubleclick.net https://www.google.com;"/>';
         sub_filter '</head>' '<link href="/static-files/highlight/styles/${THEME}.min.css" rel=stylesheet><script src="/static-files/highlight/highlight.min.js"></script><script src="/static-files/highlight/go.min.js"></script><script>hljs.configure({  cssSelector: "pre code, pre:not(:has(code))" });hljs.highlightAll()</script></head>';
         sub_filter 'pkg.go.dev' '${DOMAIN}';
         sub_filter '<code>' '<code class="language-go">';
